@@ -1,1 +1,4 @@
 NiCad files, as well as corresponding bigcloneeval files, that were crucial to this project are here. Due to lack of space not every single nicad and bligcloneeval was added. 
+
+TO RUN NICAD
+Download bigcloneeval, nicad, as well as proper configuring packages. Then change any paths to local folders, as well as configuration params. 
