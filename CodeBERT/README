@@ -1,0 +1,15 @@
+# To prepare dataset:
+
+1. download postgres dump from https://github.com/clonebench/BigCloneBench?tab=readme-ov-file
+2. load and run Postgre-SQL server from the bigclonebench dump
+3. Add the corresponding information to make_dataset.py line 172, from Postgre-SQL server
+4. Run the make_dataset.py folder
+
+# To Train CodeBert
+
+1. in code/run.py change the dataset paths to the output files from the previous step
+2. Run `python run.py --output_dir=./saved_models --model_type=roberta --config_name=microsoft/codebert-base --model_name_or_path=microsoft/codebert-base --tokenizer_name=roberta-base --do_train --train_data_file=../dataset/train.txt --eval_data_file=../dataset/valid.txt --test_data_file=../dataset/test.txt --epoch 2 --block_size 400 --train_batch_size 16 --eval_batch_size 32 --learning_rate 5e-5 --max_grad_norm 1.0 --evaluate_during_training  --seed 123456`
+
+# To Test
+
+1. Run `python run.py --output_dir=./saved_models --model_type=roberta --config_name=microsoft/codebert-base --model_name_or_path=microsoft/codebert-base --tokenizer_name=roberta-base --do_eval --do_test --train_data_file=../dataset/train.txt --eval_data_file=../dataset/valid.txt --test_data_file=../dataset/test.txt --epoch 2 --block_size 400 --train_batch_size 16 --eval_batch_size 32 --learning_rate 5e-5 --max_grad_norm 1.0 --evaluate_during_training  --seed 123456`
