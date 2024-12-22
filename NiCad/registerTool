@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! -e ".bigcloneeval" ]
+then
+	echo "registerTool must be executed from within the commands directory."
+        exit -1
+fi
+
+cd ..
+java -cp "C:/Users/leopa/BigCloneEval/bin;C:/Users/leopa/BigCloneEval/libs/*" tasks.RegisterTool "$@"
